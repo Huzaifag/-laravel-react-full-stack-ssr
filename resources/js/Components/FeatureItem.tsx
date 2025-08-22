@@ -38,7 +38,7 @@ export default function FeatureItem({ feature }: { feature: feature }) {
         <div className="flex-1">
           <Link
             prefetch
-            href='#'
+            href={route('features.show', feature.id)}
             className="group block"
           >
             <h2 className="text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100 group-hover:text-blue-600 transition-colors">
