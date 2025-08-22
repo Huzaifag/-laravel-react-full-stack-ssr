@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Comment;
 
 class Feature extends Model
 {
+    use HasFactory;
     protected $fillable = ['name', 'description', 'user_id'];
     public function comments(): HasMany
     {
@@ -21,6 +24,6 @@ class Feature extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'foreign_key', 'other_key');
+        return $this->belongsTo(User::class);
     }
 }
