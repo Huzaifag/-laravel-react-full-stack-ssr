@@ -1,3 +1,4 @@
+import FeatureActionsDropdown from '@/Components/FeatureActionsDropdown';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { feature } from '@/types';
 import { Head, Link } from '@inertiajs/react';
@@ -61,6 +62,7 @@ export default function Show({ feature }: { feature: feature }) {
             <MessageSquare size={18} />
             <span className="text-sm">4 Comments</span>
           </div>
+          <FeatureActionsDropdown feature={feature}/>
         </div>
       </motion.div>
     </AuthenticatedLayout>

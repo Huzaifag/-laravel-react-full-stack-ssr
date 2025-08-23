@@ -4,16 +4,21 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { PropsWithChildren, ReactNode, useState } from 'react';
+import { X } from "lucide-react";
+
 
 export default function Authenticated({
     header,
     children,
 }: PropsWithChildren<{ header?: ReactNode }>) {
     const user = usePage().props.auth.user;
+    const success: any = usePage().props.success;
+    const error: any = usePage().props.error;
     // console.log(user);
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
+    const [show, setShow] = useState(true);
 
     return (
         <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -190,6 +195,29 @@ export default function Authenticated({
 
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                    {success && show && (
+                        <div className="relative bg-emerald-400 text-white p-6 rounded-lg shadow-md mb-4">
+                            <span className="block">{success}</span>
+                            <button
+                                onClick={() => setShow(false)}
+                                className="absolute top-2 right-2 text-white hover:text-gray-100"
+                            >
+                                <X size={20} />
+                            </button>
+                        </div>
+                    )}
+
+                    {error && show && (
+                        <div className="relative bg-red-400 text-white p-6 rounded-lg shadow-md mb-4">
+                            <span className="block">{error}</span>
+                            <button
+                                onClick={() => setShow(false)}
+                                className="absolute top-2 right-2 text-white hover:text-gray-100"
+                            >
+                                <X size={20} />
+                            </button>
+                        </div>
+                    )}
                     <main>{children}</main>
                 </div>
             </div>

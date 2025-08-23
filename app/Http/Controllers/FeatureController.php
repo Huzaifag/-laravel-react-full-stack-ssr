@@ -43,7 +43,7 @@ class FeatureController extends Controller
 
         Feature::create($data);
 
-        return to_route('features.index')->with('sucess', 'Feature created successfully');
+        return to_route('features.index')->with('success', 'Feature created successfully');
     }
 
     /**
@@ -78,7 +78,7 @@ class FeatureController extends Controller
 
         $feature->update($data);
 
-        return to_route('features.index')->with('sucess', 'Feature updated successfully');
+        return to_route('features.index')->with('success', 'Feature updated successfully');
     }
 
     /**
@@ -88,6 +88,6 @@ class FeatureController extends Controller
     {
         $feature->delete();
 
-        return to_route('features.index')->with('sucess', 'Feature deleted successfully');
+        return to_route('features.index')->with('success', 'Feature deleted successfully');
     }
 }

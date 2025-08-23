@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "@inertiajs/react";
 import { motion } from "framer-motion";
 import { ThumbsUp, ThumbsDown, MessageSquare } from "lucide-react";
+import FeatureActionsDropdown from "./FeatureActionsDropdown";
 
 export default function FeatureItem({ feature }: { feature: feature }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -65,6 +66,7 @@ export default function FeatureItem({ feature }: { feature: feature }) {
           <MessageSquare size={18} />
           <span className="text-sm">4 Comments</span>
         </div>
+        <FeatureActionsDropdown feature={feature}/>
       </div>
     </motion.div>
   );
