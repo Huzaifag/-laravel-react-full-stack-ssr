@@ -22,6 +22,9 @@ export type feature = {
     user: User;
     created_at: string;
     updated_at: string;
+    upvotes_count: number;
+    user_has_upvoted: boolean;
+    user_has_downvoted: boolean;
 }
 
 

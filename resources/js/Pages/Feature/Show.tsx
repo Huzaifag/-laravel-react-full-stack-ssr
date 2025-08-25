@@ -1,4 +1,5 @@
 import FeatureActionsDropdown from '@/Components/FeatureActionsDropdown';
+import FeatureUpvoteDownVote from '@/Components/FeatureUpvoteDownVote';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { feature } from '@/types';
 import { Head, Link } from '@inertiajs/react';
@@ -22,24 +23,7 @@ export default function Show({ feature }: { feature: feature }) {
         className="mb-6 rounded-xl border border-gray-200 bg-white shadow-lg transition-all duration-300 dark:border-gray-700 dark:bg-gray-800"
       >
         <div className="flex p-6 gap-6 sm:gap-8">
-          {/* Vote buttons container */}
-          <div className="flex flex-col items-center justify-center space-y-2">
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              className="p-2 text-gray-400 hover:text-green-500 transition-colors"
-            >
-              <ThumbsUp size={24} strokeWidth={1.5} />
-            </motion.button>
-            <div className="font-semibold text-lg text-gray-800 dark:text-gray-200">
-              {12}
-            </div>
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              className="p-2 text-gray-400 hover:text-red-500 transition-colors"
-            >
-              <ThumbsDown size={24} strokeWidth={1.5} />
-            </motion.button>
-          </div>
+          <FeatureUpvoteDownVote feature={feature} />
 
           {/* Content Section */}
           <div className="flex-1">

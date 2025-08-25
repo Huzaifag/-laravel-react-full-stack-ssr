@@ -4,6 +4,7 @@ import { Link } from "@inertiajs/react";
 import { motion } from "framer-motion";
 import { ThumbsUp, ThumbsDown, MessageSquare } from "lucide-react";
 import FeatureActionsDropdown from "./FeatureActionsDropdown";
+import FeatureUpvoteDownVote from "./FeatureUpvoteDownVote";
 
 export default function FeatureItem({ feature }: { feature: feature }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -16,24 +17,7 @@ export default function FeatureItem({ feature }: { feature: feature }) {
       className="mb-6 rounded-xl border border-gray-200 bg-white shadow-lg transition-all duration-300 dark:border-gray-700 dark:bg-gray-800"
     >
       <div className="flex p-6 gap-6 sm:gap-8">
-        {/* Vote buttons container */}
-        <div className="flex flex-col items-center justify-center space-y-2">
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            className="p-2 text-gray-400 hover:text-green-500 transition-colors"
-          >
-            <ThumbsUp size={24} strokeWidth={1.5} />
-          </motion.button>
-          <div className="font-semibold text-lg text-gray-800 dark:text-gray-200">
-            {12}
-          </div>
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            className="p-2 text-gray-400 hover:text-red-500 transition-colors"
-          >
-            <ThumbsDown size={24} strokeWidth={1.5} />
-          </motion.button>
-        </div>
+        <FeatureUpvoteDownVote feature={feature} />
 
         {/* Content Section */}
         <div className="flex-1">
@@ -66,7 +50,7 @@ export default function FeatureItem({ feature }: { feature: feature }) {
           <MessageSquare size={18} />
           <span className="text-sm">4 Comments</span>
         </div>
-        <FeatureActionsDropdown feature={feature}/>
+        <FeatureActionsDropdown feature={feature} />
       </div>
     </motion.div>
   );
